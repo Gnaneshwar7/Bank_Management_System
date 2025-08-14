@@ -314,7 +314,7 @@ public class CustomerService {
 				if(depositingAmount>0)
 				{
 					CustomerDetails cud = customerDAO.updateCreditedAmount(depositingAmount, pin, accountNumber);
-					double balanceAmount = cud.getAmount()+depositingAmount;
+					double balanceAmount = cud.getAmount();
 					if(cud!=null)
 					{
 						TransactionDetails transactionDetails = new TransactionDetails();
@@ -436,3 +436,4 @@ public class CustomerService {
 	}
 	
 }
+
