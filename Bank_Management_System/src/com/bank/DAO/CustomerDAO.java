@@ -18,7 +18,7 @@ public class CustomerDAO {
     private final static String customerBalance = " select * from customer_details where Customer_Pin=?";
     private final static String debitAmount = "select * from customer_details where Customer_AccountNumber=? and Customer_Pin =? ";
     private final static String updateDebitAmount = " update customer_details set Customer_Amount=Customer_Amount-? where Customer_Pin=?";
-    private final static String selectUpdatedAmount = "select * from customer_details where Customer_Pin=?";
+    private final static String selectUpdatedAmount = "select * from customer_details where Customer_Pin=? and Customer_AccountNumber=?";
     private final static String updateCreditAmount = "update customer_details set Customer_Amount = Customer_Amount+? where Customer_Pin=? and Customer_AccountNumber=?";
     private final static String updatePin= "update customer_details set Customer_Pin=? where Customer_AccountNumber=?";
     private final static String selectUsingAccountAndPinNumber = " select * from customer_details where Customer_AccountNumber=? and  Customer_Pin=?";
@@ -285,6 +285,7 @@ public class CustomerDAO {
 			{
 				PreparedStatement preStatment = connection.prepareStatement(selectUpdatedAmount);
 				preStatment.setInt(1, pin);
+				preStatment.setLong(2,accountNUmber);
 				ResultSet resultSet =preStatment.executeQuery();
 				if(resultSet.next())
 				{
@@ -361,3 +362,4 @@ public class CustomerDAO {
 		return false;
 	}
 }
+
