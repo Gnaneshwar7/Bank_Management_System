@@ -233,9 +233,6 @@ public class CustomerService {
 		case 5:
 			updatingPin();
 			break;
-		case 6:
-			closingStatement();
-			break;
 		default :
 			System.out.println("Enter the Valid Choice");
 			break;
@@ -412,28 +409,6 @@ public class CustomerService {
 
 		}
 	}
-	public void closingStatement() {
-		System.out.println("Enter your Account Number");
-		long accountNumber= sc.nextLong();
-		System.out.println("Enter the Pin");
-		int closePin = sc.nextInt();
-		if(this.pin==closePin)
-		{
-			if(customerDAO.closeAccount(closePin))
-			{
-				LocalDate date = LocalDate.now();
-				CustomerDetails cd = customerDAO.selectCustomerDetailsByUsingAccountAndPinNumber(accountNumber, closePin);
-				System.out.println("Final Balance"+cd.getAmount()+"Rs.");
-				System.out.println("Your Account is Successfully Closed on "+date+".");
-				System.out.println("Thank you For Banking With Us!!");
-			}
-		}
-		else
-		{
-			System.out.println("You Can Access only your Bank Account");
-		}
-		
-	}
-	
 }
+
 
