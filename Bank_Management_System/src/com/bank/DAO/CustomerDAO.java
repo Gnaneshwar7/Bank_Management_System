@@ -320,46 +320,6 @@ public class CustomerDAO {
 		return false;
 		
 	}
-	public boolean selectClosingRequestDetails(long accountNumber,int pin,String DeActivate)
-	{
-		try {
-			Connection connection = DatabaseConnection.formysqlConnection();
-			PreparedStatement preparedStatement = connection.prepareStatement(selectUsingAccountAndPinNumber);
-			preparedStatement.setLong(1, accountNumber);
-			preparedStatement.setInt(2, pin);
-			ResultSet resultSet = preparedStatement.executeQuery();
-			if(resultSet.next())
-			{
-				PreparedStatement preStatement = connection.prepareStatement(updateClosingStatus);
-				preStatement.setString(1, DeActivate);
-				int result = preStatement.executeUpdate();
-				if(result>0)
-				{
-					return true;
-				}
-			}
-		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return false;
-	}
-	public boolean closeAccount(int pin) {
-		try {
-			Connection connection =DatabaseConnection.formysqlConnection();
-			PreparedStatement preStatement = connection.prepareStatement(closeAccount);
-			preStatement.setString(1, "Closed");
-			preStatement.setInt(2, pin);
-			int result = preStatement.executeUpdate();
-			if(result>0)
-			{
-				return true;
-			}
-		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return false;
-	}
 }
+
 
