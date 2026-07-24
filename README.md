@@ -44,7 +44,7 @@ Add MySQL JDBC driver to your project libraries
 Modify code in src/ directory only
 You can also add user input functionality for more interaction
 
-👨‍💻 Author Charan Kumar 📧 upparignaneshwar76@gmail.com
+👨‍💻 Author Uppari Gnaneshwar 📧 upparignaneshwar76@gmail.com
 
 ⭐️ GitHub Repo https://github.com/Gnaneshwar7/Bank_Management_System/edit/main/README.md
 
